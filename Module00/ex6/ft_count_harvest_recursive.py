@@ -5,7 +5,7 @@ def ft_count_harvest_recursive():
         if day > n:
             print("Harvest time!")
             return
-        print("Day", day)
+        print(f"Day {day}")
         helper(day + 1)
 
     helper(1)
