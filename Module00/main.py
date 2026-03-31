@@ -8,6 +8,7 @@ from ex6.ft_count_harvest_iterative import ft_count_harvest_iterative
 from ex6.ft_count_harvest_recursive import ft_count_harvest_recursive
 from ex7.ft_seed_inventory import ft_seed_inventory
 
+
 def main():
     print("Testing ex0:")
     ft_hello_garden()
@@ -33,6 +34,7 @@ def main():
     ft_count_harvest_recursive()
     print(" ")
     ft_seed_inventory("tomato", 15, "packets")
-   
+
+
 if __name__ == "__main__":
     main()

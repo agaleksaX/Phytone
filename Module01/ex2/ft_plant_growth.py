@@ -9,9 +9,10 @@ class Plant:
 
     def age_plant(self, days: int = 1) -> None:
         self.age += days
-    
+
     def show(self) -> None:
         print(f"{self.name}: {round(self.height,1)}cm, {self.age} days old")
+
 
 if __name__ == "__main__":
     rose = Plant("Rose", 25.0, 30)

@@ -39,7 +39,6 @@ class Plant:
         return cls("Unknown plant", 0.0, 0)
 
 
-# ================= FLOWER =================
 class Flower(Plant):
     def __init__(self, name: str, height: float, age: int, color: str) -> None:
         super().__init__(name, height, age)
@@ -58,7 +57,6 @@ class Flower(Plant):
             print(f"{self._name} has not bloomed yet")
 
 
-# ================= TREE =================
 class Tree(Plant):
     def __init__(self, name: str, height: float, age: int,
                  trunk_diameter: float) -> None:
@@ -79,7 +77,6 @@ class Tree(Plant):
         return self._shade_calls
 
 
-# ================= SEED =================
 class Seed(Flower):
     def __init__(self, name: str, height: float, age: int,
                  color: str) -> None:
@@ -95,7 +92,6 @@ class Seed(Flower):
         print(f"Seeds: {self.seeds}")
 
 
-# ================= GLOBAL FUNCTION =================
 def show_stats(plant: Plant) -> None:
     stats = plant.get_stats()
     stats.display()
@@ -104,18 +100,15 @@ def show_stats(plant: Plant) -> None:
         print(f"{plant.get_shade_stats()} shade")
 
 
-# ================= TEST =================
 if __name__ == "__main__":
     print("=== Garden statistics ===")
 
-    # static method
     print("=== Check year-old ===")
     print("Is 30 days more than a year? ->",
           Plant.is_older_than_year(30))
     print("Is 400 days more than a year? ->",
           Plant.is_older_than_year(400))
 
-    # Flower
     print("\n=== Flower ===")
     rose = Flower("Rose", 15.0, 10, "red")
     rose.show()
@@ -129,7 +122,6 @@ if __name__ == "__main__":
     print("[statistics for Rose]")
     show_stats(rose)
 
-    # Tree
     print("\n=== Tree ===")
     oak = Tree("Oak", 200.0, 365, 5.0)
     oak.show()
@@ -141,7 +133,6 @@ if __name__ == "__main__":
     print("[statistics for Oak]")
     show_stats(oak)
 
-    # Seed
     print("\n=== Seed ===")
     sunflower = Seed("Sunflower", 80.0, 45, "yellow")
     sunflower.show()
@@ -155,7 +146,6 @@ if __name__ == "__main__":
     print("[statistics for Sunflower]")
     show_stats(sunflower)
 
-    # Anonymous
     print("\n=== Anonymous ===")
     unknown = Plant.anonymous()
     unknown.show()
