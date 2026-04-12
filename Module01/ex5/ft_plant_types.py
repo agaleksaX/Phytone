@@ -1,5 +1,5 @@
 class Plant:
-    def __init__(self, name: str, height: float, age: int):
+    def __init__(self, name: str, height: float, age: int) -> None:
         self.name = name
         self.height = height
         self.age = age
@@ -9,7 +9,7 @@ class Plant:
 
 
 class Flower(Plant):
-    def __init__(self, name: str, height: float, age: int, color: str):
+    def __init__(self, name: str, height: float, age: int, color: str) -> None:
         super().__init__(name, height, age)
         self.color = color
         self._bloomed = False
@@ -27,8 +27,9 @@ class Flower(Plant):
 
 
 class Tree(Plant):
-    def __init__(self, name: str,
-                 height: float, age: int, trunk_diameter: float):
+    def __init__(
+        self, name: str, height: float, age: int, trunk_diameter: float
+    ) -> None:
         super().__init__(name, height, age)
         self.trunk_diameter = trunk_diameter
 
@@ -44,8 +45,13 @@ class Tree(Plant):
 
 
 class Vegetable(Plant):
-    def __init__(self, name: str,
-                 height: float, age: int, harvest_season: str):
+    def __init__(
+        self,
+        name: str,
+        height: float,
+        age: int,
+        harvest_season: str
+    ) -> None:
         super().__init__(name, height, age)
         self.harvest_season = harvest_season
         self.nutritional_value = 0
@@ -59,31 +65,3 @@ class Vegetable(Plant):
         super().show()
         print(f"Harvest season: {self.harvest_season}")
         print(f"Nutritional value: {self.nutritional_value}")
-
-
-if __name__ == "__main__":
-    print("=== Garden Plant Types ===")
-
-    print("=== Flower")
-    f = Flower("Rose", 15.0, 10, "red")
-    f.show()
-    print("[asking the rose to bloom]")
-    f.bloom()
-    f.show()
-
-    print()
-
-    print("=== Tree")
-    t = Tree("Oak", 200.0, 365, 5.0)
-    t.show()
-    print("[asking the oak to produce shade]")
-    t.produce_shade()
-
-    print()
-
-    print("=== Vegetable")
-    v = Vegetable("Tomato", 5.0, 10, "April")
-    v.show()
-    print("[make tomato grow and age for 20 days]")
-    v.grow(20)
-    v.show()
