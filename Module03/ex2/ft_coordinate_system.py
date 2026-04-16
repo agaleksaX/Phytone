@@ -4,10 +4,7 @@ import math
 def get_player_pos() -> tuple[float, float, float]:
     while True:
         try:
-            user_input = input(
-                "Enter new coordinates as floats "
-                "in format 'x,y,z': "
-            )
+            user_input = input("Enter new coordinates as " "floats in format 'x,y,z': ")
             parts = user_input.split(",")
 
             try:
@@ -27,10 +24,7 @@ def get_player_pos() -> tuple[float, float, float]:
                 try:
                     float(part.strip())
                 except ValueError:
-                    print(
-                        f"Error on parameter '{part.strip()}': "
-                        f"{e}"
-                    )
+                    print(f"Error on parameter '{part.strip()}': " f"{e}")
                     break
 
         except EOFError:
@@ -41,11 +35,7 @@ def distance(
     p1: tuple[float, float, float],
     p2: tuple[float, float, float],
 ) -> float:
-    return math.sqrt(
-                    (p2[0] - p1[0]) ** 2
-                    + (p2[1] - p1[1]) ** 2
-                    + (p2[2] - p1[2]) ** 2
-                )
+    return math.sqrt((p2[0] - p1[0]) ** 2 + (p2[1] - p1[1]) ** 2 + (p2[2] - p1[2]) ** 2)
 
 
 def main() -> None:
@@ -65,10 +55,7 @@ def main() -> None:
     pos2 = get_player_pos()
 
     dist_between = distance(pos1, pos2)
-    print(
-        "Distance between the 2 sets of coordinates: "
-        f"{dist_between:.4f}"
-        )
+    print("Distance between the 2 sets of coordinates: " f"{dist_between:.4f}")
 
 
 if __name__ == "__main__":
