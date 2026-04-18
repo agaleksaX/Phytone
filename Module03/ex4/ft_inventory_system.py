@@ -24,13 +24,40 @@ for arg in sys.argv[1:]:
     inventory[name] = quantity
 
 print(f"Got inventory: {inventory}")
-print(f"Item list: {list(inventory.keys())}")
+
+items = list(inventory.keys())
+print(f"Item list: {items}")
+
 total = sum(inventory.values())
-print(f"Total quantity of the {len(inventory)} items: {total}")
-for name in inventory:
-    quantity = inventory[name]
-    if total == 0:
-        percent = 0
-    else:
-        percent = round((quantity / total) * 100, 1)
-    print(f"Item {name} represents {percent}%")
+print(f"Total quantity of the {len(items)} items: {total}")
+
+for name in items:
+    percent = (inventory[name] / total) * 100 if total else 0
+    print(f"Item {name} represents {round(percent, 1)}%")
+
+most_item = None
+least_item = None
+
+for name in items:
+    if most_item is None or inventory[name] > inventory[most_item]:
+        most_item = name
+    if least_item is None or inventory[name] < inventory[least_item]:
+        least_item = name
+
+if most_item:
+    print(
+        f"Item most abundant: "
+        f"{most_item} "
+        "with quantity "
+        f"{inventory[most_item]}"
+    )
+if least_item:
+    print(
+        f"Item least abundant: "
+        f"{least_item} "
+        "with quantity "
+        f"{inventory[least_item]}"
+    )
+
+inventory.update({"magic_item": 1})
+print(f"Updated inventory: {inventory}")
