@@ -76,15 +76,12 @@ Each module represents a step in building a strong foundation in programming and
 
 ## 📂 Project Structure
 
-
-Phytone/
-├── Module00/ # Python basics
-├── Module01/ # OOP
-├── Module02/ # Error handling
-├── Module03/ # Data processing
-├── Module04/ # File & system tools
-├── Module05/ # Advanced (in progress)
-└── README.md
+- **Module00** — Python basics  
+- **Module01** — OOP  
+- **Module02** — Error handling  
+- **Module03** — Data processing  
+- **Module04** — File & system tools  
+- **Module05** — Advanced (in progress)
 
 
 ---
