@@ -75,3 +75,32 @@ Each module represents a step in building a strong foundation in programming and
 ---
 
 ## 📂 Project Structure
+
+Phytone/
+├── Module00/
+├── Module01/
+├── Module02/
+├── Module03/
+├── Module04/
+├── Module05/
+└── README.md
+
+
+---
+
+## 🎯 Purpose
+
+The goal of this repository is to demonstrate:
+
+- My learning progression  
+- Strong programming fundamentals  
+- Ability to build structured and scalable code  
+- Readiness for real-world development tasks  
+
+---
+
+## 👤 Author
+
+Aghvan Aleksanyan  
+42 Yerevan student  
+Aspiring Software Engineer  
