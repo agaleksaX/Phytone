@@ -4,6 +4,12 @@ class Plant:
         self.height = height
         self.age = age
 
+    def grow(self) -> None:
+        self.height += 2.1
+
+    def age_plant(self) -> None:
+        self.age += 1
+
     def show(self) -> None:
         print(f"{self.name}: {self.height:.1f}cm, {self.age} days old")
 
@@ -56,12 +62,39 @@ class Vegetable(Plant):
         self.harvest_season = harvest_season
         self.nutritional_value = 0
 
-    def grow(self, days: int) -> None:
-        self.age += days
-        self.height += days * 2.1
-        self.nutritional_value += days
+    def grow(self) -> None:
+        super().grow()
+        super().age_plant()
+        self.nutritional_value += 1
 
     def show(self) -> None:
         super().show()
         print(f"Harvest season: {self.harvest_season}")
         print(f"Nutritional value: {self.nutritional_value}")
+
+
+if __name__ == "__main__":
+    print("=== Garden Plant Types ===")
+
+    print("=== Flower")
+    rose = Flower("Rose", 15.0, 10, "red")
+    rose.show()
+    print("[asking the rose to bloom]")
+    rose.bloom()
+    rose.show()
+
+    print("\n=== Tree")
+    oak = Tree("Oak", 200.0, 365, 5.0)
+    oak.show()
+    print("[asking the oak to produce shade]")
+    oak.produce_shade()
+
+    print("\n=== Vegetable")
+    tomato = Vegetable("Tomato", 5.0, 10, "April")
+    tomato.show()
+    print("[make tomato grow and age for 20 days]")
+
+    for _ in range(20):
+        tomato.grow()
+
+    tomato.show()
