@@ -30,11 +30,11 @@ def consume_event(events: list) -> Generator[tuple, None, None]:
 
 stream = gen_event()
 
-for i in range(1000):
+for i in range(10000):
     name, action = next(stream)
     print(f"Event {i}: Player {name} did action {action}")
 
-events = [next(stream) for _ in range(10)]
+events = [next(stream) for _ in range(10000)]
 print(f"Built list of 10 events: {events}")
 
 for event in consume_event(events):
