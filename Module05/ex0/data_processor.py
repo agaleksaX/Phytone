@@ -115,59 +115,76 @@ class LogProcessor(DataProcessor):
 
 
 if __name__ == "__main__":
-    print("Testing NumericProcessor:")
-    num = NumericProcessor()
-    print(num.validate(42))  # True
-    print(num.validate("hello"))  # False
 
+    print("=== Code Nexus - Data Processor ===\n")
+
+    print("Testing Numeric Processor...\n")
+
+    numeric = NumericProcessor()
+
+    print(f"Trying to validate input '42': " f"{numeric.validate(42)}")
+
+    print(f"Trying to validate input 'Hello': " f"{numeric.validate('Hello')}")
+
+    print("Test invalid ingestion of string "
+          "'foo' without prior validation:")
     try:
-        num.ingest("foo")
-    except Exception as e:
-        print(e)
+        numeric.ingest("foo")
 
-    num.ingest([1, 2, 3])
-    while True:
-        try:
-            print(num.output())
-        except IndexError:
-            break
+    except ValueError as error:
+        print(f"Got exception: {error}")
 
-    print("\nTesting TextProcessor:")
+    numeric_data = [1, 2, 3, 4, 5]
+
+    print(f"Processing data: {numeric_data}")
+
+    numeric.ingest(numeric_data)
+
+    print("Extracting 3 values...")
+
+    for _ in range(3):
+
+        rank, value = numeric.output()
+
+        print(f"Numeric value {rank}: " f"{value}")
+
+    print("\nTesting Text Processor...\n")
+
     text = TextProcessor()
-    print(text.validate(42))  # False
-    print(text.validate("hello"))  # True
-    text.ingest("122512")
-    while True:
-        try:
-            print(text.output())
-        except IndexError:
-            break
-    text.ingest(["foo", "bar", "baz"])
-    while True:
-        try:
-            print(text.output())
-        except IndexError:
-            break
 
-    print("\nTesting LogProcessor:")
+    print(f"Trying to validate input '42': " f"{text.validate(42)}")
+
+    text_data = ["Hello", "Nexus", "World"]
+
+    print(f"Processing data: {text_data}")
+
+    text.ingest(text_data)
+
+    print("Extracting 1 value...")
+
+    rank, value = text.output()
+
+    print(f"Text value {rank}: " f"{value}")
+
+    print("\nTesting Log Processor...\n")
+
     log = LogProcessor()
-    log_data = {"log_level": "ERROR", "log_message": "Something went wrong"}
-    print(log.validate(log_data))  # True
-    log.ingest(log_data)
-    while True:
-        try:
-            print(log.output())
-        except IndexError:
-            break
 
-    print("\nTesting LogProcessor with list of logs:\n")
-    log_list = [
-        {"log_level": "INFO", "log_message": "Process started"},
-        {"log_level": "WARNING", "log_message": "Low disk space"},
+    print(f"Trying to validate input 'Hello': " f"{log.validate('Hello')}")
+
+    log_data = [
+        {"log_level": "NOTICE", "log_message": ("Connection to server")},
+        {"log_level": "ERROR", "log_message": ("Unauthorized access!!")},
     ]
-    log.ingest(log_list)
-    while True:
-        try:
-            print(log.output())
-        except IndexError:
-            break
+
+    print(f"Processing data: {log_data}")
+
+    log.ingest(log_data)
+
+    print("Extracting 2 values...")
+
+    for _ in range(2):
+
+        rank, value = log.output()
+
+        print(f"Log entry {rank}: " f"{value}")

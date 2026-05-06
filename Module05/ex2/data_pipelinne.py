@@ -1,4 +1,4 @@
-from typing import Any, List
+from typing import Any, List, Protocol, Tuple
 
 from ex0.data_processor import (
     DataProcessor,
@@ -6,6 +6,38 @@ from ex0.data_processor import (
     NumericProcessor,
     TextProcessor,
 )
+
+
+class ExportPlugin(Protocol):
+
+    def process_output(self, data: List[Tuple[int, str]]) -> None: ...
+
+
+class CSVExportPlugin:
+
+    def process_output(self, data: List[Tuple[int, str]]) -> None:
+
+        result: List[str] = []
+
+        for _, value in data:
+            result.append(value)
+
+        print("CSV Output:")
+        print(",".join(result))
+
+
+class JSONExportPlugin:
+
+    def process_output(self, data: List[Tuple[int, str]]) -> None:
+
+        result: List[str] = []
+
+        for rank, value in data:
+
+            result.append(f'"item_{rank}": "{value}"')
+
+        print("JSON Output:")
+        print("{" + ", ".join(result) + "}")
 
 
 class DataStream:
@@ -81,10 +113,31 @@ class DataStream:
                     f"on processor"
                 )
 
+    def output_pipeline(self, nb: int, plugin: ExportPlugin) -> None:
+
+        for proc in self.processors:
+
+            export_data: List[Tuple[int, str]] = []
+
+            for _ in range(nb):
+
+                try:
+
+                    data = proc.output()
+
+                    export_data.append(data)
+
+                except IndexError:
+                    break
+
+            if export_data:
+
+                plugin.process_output(export_data)
+
 
 if __name__ == "__main__":
 
-    print("=== Code Nexus - Data Stream ===\n")
+    print("=== Code Nexus - " "Data Pipeline ===\n")
 
     print("Initialize Data Stream...\n")
 
@@ -92,11 +145,15 @@ if __name__ == "__main__":
 
     stream.print_processors_stats()
 
-    print("\nRegistering Numeric Processor\n")
+    print("\nRegistering Processors\n")
 
     stream.register_processor(NumericProcessor())
 
-    batch = [
+    stream.register_processor(TextProcessor())
+
+    stream.register_processor(LogProcessor())
+
+    first_batch = [
         "Hello world",
         [3.14, -1, 2.71],
         [
@@ -110,45 +167,51 @@ if __name__ == "__main__":
         ["Hi", "five"],
     ]
 
-    print("Send first batch of data " f"on stream: {batch}")
+    print("Send first batch " "of data on stream:")
 
-    stream.process_stream(batch)
+    print(first_batch)
+    print()
 
-    stream.print_processors_stats()
-
-    print("\nRegistering other " "data processors\n")
-
-    stream.register_processor(TextProcessor())
-
-    stream.register_processor(LogProcessor())
-
-    print("Send the same batch again\n")
-
-    stream.process_stream(batch)
+    stream.process_stream(first_batch)
 
     stream.print_processors_stats()
 
-    print(
-        "\nConsume some elements "
-        "from the data processors: "
-        "Numeric 3, Text 2, Log 1"
-    )
+    print("\nSend 3 processed data " "from each processor " "to a CSV plugin:")
 
-    for proc in stream.processors:
+    csv_plugin = CSVExportPlugin()
 
-        if isinstance(proc, NumericProcessor):
+    stream.output_pipeline(3, csv_plugin)
 
-            for _ in range(3):
-                proc.output()
+    stream.print_processors_stats()
 
-        elif isinstance(proc, TextProcessor):
+    second_batch = [
+        21,
+        ["I love AI", "LLMs are wonderful", "Stay healthy"],
+        [
+            {"log_level": "ERROR", "log_message": ("500 server crash")},
+            {
+                "log_level": "NOTICE",
+                "log_message": ("Certificate expires " "in 10 days"),
+            },
+        ],
+        [32, 42, 64, 84, 128, 168],
+        "World hello",
+    ]
 
-            for _ in range(2):
-                proc.output()
+    print("\nSend another " "batch of data:")
 
-        elif isinstance(proc, LogProcessor):
+    print(second_batch)
+    print()
 
-            for _ in range(1):
-                proc.output()
+    stream.process_stream(second_batch)
+
+    stream.print_processors_stats()
+
+    print("\nSend 5 processed data " "from each processor "
+          "to a JSON plugin:")
+
+    json_plugin = JSONExportPlugin()
+
+    stream.output_pipeline(5, json_plugin)
 
     stream.print_processors_stats()
