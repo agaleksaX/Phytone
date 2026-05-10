@@ -1,15 +1,3 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    ft_achievement_tracker.py                          :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: agaleksa <marvin@42.fr>                    +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2026/05/10 10:26:07 by agaleksa          #+#    #+#              #
-#    Updated: 2026/05/10 10:26:08 by agaleksa         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
 import random
 
 
@@ -35,7 +23,7 @@ if __name__ == "__main__":
         "First Steps",
         "Sharp Mind",
         "Unstoppable",
-        "Hidden Path Finder"
+        "Hidden Path Finder",
     ]
 
     players = {
@@ -55,9 +43,7 @@ if __name__ == "__main__":
     print(f"\nCommon achievements: {common}\n")
 
     for name, achievements in players.items():
-        others = set().union(
-            *(players[n] for n in players if n != name)
-        )
+        others = set().union(*(players[n] for n in players if n != name))
         only = achievements - others
         print(f"Only {name} has: {only}")
 

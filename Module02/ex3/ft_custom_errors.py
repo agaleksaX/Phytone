@@ -1,15 +1,3 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    ft_custom_errors.py                                :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: agaleksa <marvin@42.fr>                    +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2026/05/10 10:25:40 by agaleksa          #+#    #+#              #
-#    Updated: 2026/05/10 10:25:41 by agaleksa         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
 class GardenError(Exception):
     def __init__(self, message: str = "Unknown garden error") -> None:
         super().__init__(message)

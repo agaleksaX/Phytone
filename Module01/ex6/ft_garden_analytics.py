@@ -1,15 +1,3 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    ft_garden_analytics.py                             :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: agaleksa <marvin@42.fr>                    +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2026/05/10 10:25:24 by agaleksa          #+#    #+#              #
-#    Updated: 2026/05/10 10:25:25 by agaleksa         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
 class Plant:
     class Stats:
         def __init__(self) -> None:
@@ -18,8 +6,10 @@ class Plant:
             self.show_calls = 0
 
         def display(self) -> None:
-            print(f"Stats: {self.grow_calls} grow, "
-                  f"{self.age_calls} age, {self.show_calls} show")
+            print(
+                f"Stats: {self.grow_calls} grow, "
+                f"{self.age_calls} age, {self.show_calls} show"
+            )
 
     def __init__(self, name: str, height: float, age: int) -> None:
         self._name = name
@@ -70,15 +60,18 @@ class Flower(Plant):
 
 
 class Tree(Plant):
-    def __init__(self, name: str, height: float, age: int,
-                 trunk_diameter: float) -> None:
+    def __init__(
+        self, name: str, height: float, age: int, trunk_diameter: float
+    ) -> None:
         super().__init__(name, height, age)
         self.trunk_diameter = trunk_diameter
         self._shade_calls = 0
 
     def produce_shade(self) -> None:
-        print(f"Tree {self._name} now produces a shade of "
-              f"{self._height}cm long and {self.trunk_diameter}cm wide.")
+        print(
+            f"Tree {self._name} now produces a shade of "
+            f"{self._height}cm long and {self.trunk_diameter}cm wide."
+        )
         self._shade_calls += 1
 
     def show(self) -> None:
@@ -90,8 +83,7 @@ class Tree(Plant):
 
 
 class Seed(Flower):
-    def __init__(self, name: str, height: float, age: int,
-                 color: str) -> None:
+    def __init__(self, name: str, height: float, age: int, color: str) -> None:
         super().__init__(name, height, age, color)
         self.seeds = 0
 
@@ -116,10 +108,8 @@ if __name__ == "__main__":
     print("=== Garden statistics ===")
 
     print("=== Check year-old ===")
-    print("Is 30 days more than a year? ->",
-          Plant.is_older_than_year(30))
-    print("Is 400 days more than a year? ->",
-          Plant.is_older_than_year(400))
+    print("Is 30 days more than a year? ->", Plant.is_older_than_year(30))
+    print("Is 400 days more than a year? ->", Plant.is_older_than_year(400))
 
     print("\n=== Flower ===")
     rose = Flower("Rose", 15.0, 10, "red")

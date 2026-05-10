@@ -1,15 +1,3 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    data_processor.py                                  :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: agaleksa <marvin@42.fr>                    +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2026/05/10 10:26:49 by agaleksa          #+#    #+#              #
-#    Updated: 2026/05/10 10:26:50 by agaleksa         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
 from abc import ABC, abstractmethod
 from typing import Any, List, Tuple
 
@@ -138,8 +126,7 @@ if __name__ == "__main__":
 
     print(f"Trying to validate input 'Hello': " f"{numeric.validate('Hello')}")
 
-    print("Test invalid ingestion of string "
-          "'foo' without prior validation:")
+    print("Test invalid ingestion of string " "'foo' without prior validation:")
     try:
         numeric.ingest("foo")
 

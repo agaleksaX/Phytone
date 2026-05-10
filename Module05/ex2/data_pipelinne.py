@@ -1,15 +1,3 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    data_pipelinne.py                                  :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: agaleksa <marvin@42.fr>                    +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2026/05/10 10:26:54 by agaleksa          #+#    #+#              #
-#    Updated: 2026/05/10 10:26:55 by agaleksa         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
 from typing import Any, List, Protocol, Tuple
 from abc import ABC, abstractmethod
 
@@ -183,8 +171,7 @@ class DataStream:
             if not processed:
 
                 print(
-                    "DataStream error - " "Can't process element "
-                    f"in stream: {data}"
+                    "DataStream error - " "Can't process element " f"in stream: {data}"
                 )
 
     def print_processors_stats(self) -> None:
@@ -325,8 +312,7 @@ if __name__ == "__main__":
 
     stream.print_processors_stats()
 
-    print("\nSend 5 processed data "
-          "from each processor " "to a JSON plugin:")
+    print("\nSend 5 processed data " "from each processor " "to a JSON plugin:")
 
     json_plugin = JSONExportPlugin()
 

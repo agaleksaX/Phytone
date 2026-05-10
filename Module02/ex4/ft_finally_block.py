@@ -1,15 +1,3 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    ft_finally_block.py                                :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: agaleksa <marvin@42.fr>                    +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2026/05/10 10:25:43 by agaleksa          #+#    #+#              #
-#    Updated: 2026/05/10 10:25:44 by agaleksa         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
 class PlantError(Exception):
     def __init__(self, message: str = "Invalid plant name") -> None:
         super().__init__(message)

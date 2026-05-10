@@ -1,15 +1,3 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    ft_score_analytics.py                              :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: agaleksa <marvin@42.fr>                    +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2026/05/10 10:25:56 by agaleksa          #+#    #+#              #
-#    Updated: 2026/05/10 10:26:02 by agaleksa         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
 import sys
 from typing import List
 
@@ -50,20 +38,16 @@ def main() -> None:
 
     if len(args) == 0:
         print("=== Player Score Analytics ===")
-        print(
-            "No scores provided. Usage: python3 \
-                ft_score_analytics.py <score1> <score2> ..."
-        )
+        print("No scores provided. Usage: python3 \
+                ft_score_analytics.py <score1> <score2> ...")
         return
 
     scores = parse_scores(args)
 
     if len(scores) == 0:
         print("=== Player Score Analytics ===")
-        print(
-            "No scores provided. Usage: python3 \
-                ft_score_analytics.py <score1> <score2> ..."
-        )
+        print("No scores provided. Usage: python3 \
+                ft_score_analytics.py <score1> <score2> ...")
         return
 
     print_stats(scores)

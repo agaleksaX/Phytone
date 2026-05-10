@@ -1,15 +1,3 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    data_stream.py                                     :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: agaleksa <marvin@42.fr>                    +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2026/05/10 10:26:52 by agaleksa          #+#    #+#              #
-#    Updated: 2026/05/10 10:26:53 by agaleksa         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
 from abc import ABC, abstractmethod
 from typing import Any, List, Tuple
 
@@ -151,8 +139,7 @@ class DataStream:
             if not processed:
 
                 print(
-                    "DataStream error - " "Can't process element "
-                    f"in stream: {data}"
+                    "DataStream error - " "Can't process element " f"in stream: {data}"
                 )
 
     def print_processors_stats(self) -> None:
