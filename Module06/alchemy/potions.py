@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    potions.py                                         :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: agaleksa <marvin@42.fr>                    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2026/05/10 10:27:34 by agaleksa          #+#    #+#              #
+#    Updated: 2026/05/10 10:27:35 by agaleksa         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 from alchemy.elements import create_air, create_earth
 from elements import create_water, create_fire
 
