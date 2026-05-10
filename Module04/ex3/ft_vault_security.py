@@ -18,7 +18,7 @@ def secure_archive(
         return False, str(e)
 
 
-def main():
+def main() -> None:
     print("=== Cyber Archives Security ===\n")
 
     print("Using 'secure_archive' to read from a nonexistent file:")

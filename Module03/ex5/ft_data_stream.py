@@ -4,7 +4,7 @@ from typing import Generator
 print("=== Game Data Stream Processor ===")
 
 
-def gen_event() -> Generator[tuple, None, None]:
+def gen_event() -> Generator[tuple[str, str], None, None]:
     players = ["alice", "bob", "charlie", "dylan"]
     actions = [
         "run",
@@ -21,7 +21,9 @@ def gen_event() -> Generator[tuple, None, None]:
         yield (random.choice(players), random.choice(actions))
 
 
-def consume_event(events: list) -> Generator[tuple, None, None]:
+def consume_event(
+    events: list[tuple[str, str]]
+) -> Generator[tuple[str, str], None, None]:
     while len(events) > 0:
         index = random.randrange(len(events))
         event = events.pop(index)

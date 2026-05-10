@@ -1,7 +1,7 @@
 import sys
 
 
-def main():
+def main() -> None:
     if len(sys.argv) != 2:
         print("Usage: ft_stream_management.py <file>")
         sys.exit(1)

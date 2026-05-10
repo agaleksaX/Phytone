@@ -1,7 +1,7 @@
 import sys
 
 
-def main():
+def main() -> None:
     if len(sys.argv) != 2:
         print("Usage: ft_archive_creation.py <file>")
         sys.exit(1)

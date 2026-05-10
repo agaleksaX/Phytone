@@ -2,21 +2,21 @@ import sys
 
 print("=== Inventory System Analysis ===")
 
-inventory = {}
+inventory: dict[str, int] = {}
 
 for arg in sys.argv[1:]:
     if ":" not in arg:
         print(f"Error - invalid parameter '{arg}'")
         continue
 
-    name, quantity = arg.split(":", 1)
+    name, quantity_str = arg.split(":", 1)
 
     if name in inventory:
         print(f"Redundant item '{name}' - discarding")
         continue
 
     try:
-        quantity = int(quantity)
+        quantity = int(quantity_str)
     except ValueError as e:
         print(f"Quantity error for '{name}': {e}")
         continue

@@ -139,7 +139,8 @@ class DataStream:
             if not processed:
 
                 print(
-                    "DataStream error - " "Can't process element " f"in stream: {data}"
+                    "DataStream error - " "Can't process element "
+                    f"in stream: {data}"
                 )
 
     def print_processors_stats(self) -> None:

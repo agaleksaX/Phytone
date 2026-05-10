@@ -126,7 +126,10 @@ if __name__ == "__main__":
 
     print(f"Trying to validate input 'Hello': " f"{numeric.validate('Hello')}")
 
-    print("Test invalid ingestion of string " "'foo' without prior validation:")
+    print(
+        "Test invalid ingestion of string "
+        "'foo' without prior validation:"
+        )
     try:
         numeric.ingest("foo")
 
