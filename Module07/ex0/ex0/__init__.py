@@ -1,4 +1,4 @@
-from .flame_family import FlameFactory
 from .aqua_family import AquaFactory
+from .flame_family import FlameFactory
 
-__all__ = ["FlameFactory", "AquaFactory"]
+__all__ = ["AquaFactory", "FlameFactory"]

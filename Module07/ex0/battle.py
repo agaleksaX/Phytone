@@ -37,9 +37,11 @@ def main() -> None:
     aqua_factory = AquaFactory()
 
     test_factory(flame_factory)
-    print("")
+    print()
+
     test_factory(aqua_factory)
-    print("")
+    print()
+
     test_battle(flame_factory, aqua_factory)
 
 

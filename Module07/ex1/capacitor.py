@@ -1,4 +1,3 @@
-from ex0.ex0.creature import CreatureFactory
 from ex1.ex1 import HealingCreatureFactory, TransformCreatureFactory
 
 
@@ -25,6 +24,7 @@ def test_healing_factory(factory: HealingCreatureFactory) -> None:
 
 def test_transform_factory(factory: TransformCreatureFactory) -> None:
 
+    print("")
     print("Testing Creature with transform capability")
 
     base = factory.create_base()

@@ -1,5 +1,5 @@
+from ex0.ex0.creature import Creature, CreatureFactory
 from .capabilities import TransformCapability
-from ex0.ex0.creature import CreatureFactory, Creature
 
 
 class Shiftling(Creature, TransformCapability):
@@ -46,8 +46,8 @@ class Morphagon(Creature, TransformCapability):
 
 class TransformCreatureFactory(CreatureFactory):
 
-    def create_base(self) -> Creature:
+    def create_base(self) -> Shiftling:
         return Shiftling()
 
-    def create_evolved(self) -> Creature:
+    def create_evolved(self) -> Morphagon:
         return Morphagon()
