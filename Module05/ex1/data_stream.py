@@ -21,6 +21,12 @@ class DataProcessor(ABC):
             raise IndexError("No data")
 
         return self._storage.pop(0)
+    
+    def get_total_processed(self) -> int:
+        return self._counter
+
+    def get_remaining(self) -> int:
+        return len(self._storage)
 
 
 class NumericProcessor(DataProcessor):
@@ -158,10 +164,10 @@ class DataStream:
 
                 print(
                     f"Numeric Processor: "
-                    f"total {proc._counter} "
+                    f"total {proc.get_total_processed()} "
                     f"items processed, "
                     f"remaining "
-                    f"{len(proc._storage)} "
+                    f"{proc.get_remaining()} "
                     f"on processor"
                 )
 
@@ -169,10 +175,10 @@ class DataStream:
 
                 print(
                     f"Text Processor: "
-                    f"total {proc._counter} "
+                    f"total {proc.get_total_processed()} "
                     f"items processed, "
                     f"remaining "
-                    f"{len(proc._storage)} "
+                    f"{proc.get_remaining()} "
                     f"on processor"
                 )
 
@@ -180,25 +186,25 @@ class DataStream:
 
                 print(
                     f"Log Processor: "
-                    f"total {proc._counter} "
+                    f"total {proc.get_total_processed()} "
                     f"items processed, "
                     f"remaining "
-                    f"{len(proc._storage)} "
+                    f"{proc.get_remaining()} "
                     f"on processor"
                 )
 
 
 if __name__ == "__main__":
 
-    print("=== Code Nexus - Data Stream ===\n")
+    print("=== Code Nexus - Data Stream ===")
 
-    print("Initialize Data Stream...\n")
+    print("Initialize Data Stream...")
 
     stream = DataStream()
 
     stream.print_processors_stats()
 
-    print("\nRegistering Numeric Processor\n")
+    print("Registering Numeric Processor")
 
     stream.register_processor(NumericProcessor())
 
@@ -222,20 +228,20 @@ if __name__ == "__main__":
 
     stream.print_processors_stats()
 
-    print("\nRegistering other " "data processors\n")
+    print("Registering other " "data processors")
 
     stream.register_processor(TextProcessor())
 
     stream.register_processor(LogProcessor())
 
-    print("Send the same batch again\n")
+    print("Send the same batch again")
 
     stream.process_stream(batch)
 
     stream.print_processors_stats()
 
     print(
-        "\nConsume some elements "
+        "Consume some elements "
         "from the data processors: "
         "Numeric 3, Text 2, Log 1"
     )
