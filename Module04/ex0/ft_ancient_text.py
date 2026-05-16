@@ -23,7 +23,7 @@ def main() -> None:
         print(f"File '{filename}' closed.")
 
     except Exception as e:
-        print(f"Error opening file '{filename}': {e}\n")
+        print(f"Error opening file '{filename}': {e}")
 
 
 if __name__ == "__main__":

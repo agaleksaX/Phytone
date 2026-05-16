@@ -38,16 +38,16 @@ def main() -> None:
 
     if len(args) == 0:
         print("=== Player Score Analytics ===")
-        print("No scores provided. Usage: python3 \
-                ft_score_analytics.py <score1> <score2> ...")
+        print("No scores provided. Usage: "
+              "python3 ft_score_analytics.py <score1> <score2> ...")
         return
 
     scores = parse_scores(args)
 
     if len(scores) == 0:
         print("=== Player Score Analytics ===")
-        print("No scores provided. Usage: python3 \
-                ft_score_analytics.py <score1> <score2> ...")
+        print("No scores provided. Usage: "
+              "python3 ft_score_analytics.py <score1> <score2> ...")
         return
 
     print_stats(scores)
@@ -55,6 +55,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-
-    def test() -> None:
-        print("hello world this is very very very very very very long line")

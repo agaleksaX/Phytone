@@ -1,8 +1,6 @@
 import random
 from typing import Generator
 
-print("=== Game Data Stream Processor ===")
-
 
 def gen_event() -> Generator[tuple[str, str], None, None]:
     players = ["alice", "bob", "charlie", "dylan"]
@@ -22,7 +20,7 @@ def gen_event() -> Generator[tuple[str, str], None, None]:
 
 
 def consume_event(
-    events: list[tuple[str, str]]
+    events: list[tuple[str, str]],
 ) -> Generator[tuple[str, str], None, None]:
     while len(events) > 0:
         index = random.randrange(len(events))
@@ -30,15 +28,23 @@ def consume_event(
         yield event
 
 
-stream = gen_event()
+def main() -> None:
 
-for i in range(10000):
-    name, action = next(stream)
-    print(f"Event {i}: Player {name} did action {action}")
+    print("=== Game Data Stream Processor ===")
 
-events = [next(stream) for _ in range(10000)]
-print(f"Built list of 10 events: {events}")
+    stream = gen_event()
 
-for event in consume_event(events):
-    print(f"Got event from list: {event}")
-    print(f"Remains in list: {events}")
+    for i in range(1000):
+        name, action = next(stream)
+        print(f"Event {i}: Player {name} did action {action}")
+
+    events = [next(stream) for _ in range(10)]
+    print(f"Built list of 10 events: {events}")
+
+    for event in consume_event(events):
+        print(f"Got event from list: {event}")
+        print(f"Remains in list: {events}")
+
+
+if __name__ == "__main__":
+    main()

@@ -8,7 +8,7 @@ def garden_operations(operation_number: int) -> None:
     elif operation_number == 3:
         "hello" + 5  # type: ignore[operator]
     else:
-        print("Operation completed successfully\n")
+        print("Operation completed successfully")
 
 
 def test_error_types() -> None:

@@ -7,7 +7,7 @@ def gen_player_achievements(all_achievements: list[str]) -> set[str]:
 
 
 if __name__ == "__main__":
-    print("=== Achievement Tracker System ===\n")
+    print("=== Achievement Tracker System ===")
 
     all_achievements = [
         "Crafting Genius",
@@ -37,18 +37,18 @@ if __name__ == "__main__":
         print(f"Player {name}: {achievements}")
 
     all_unique = set().union(*players.values())
-    print(f"\nAll distinct achievements: {all_unique}")
+    print(f"All distinct achievements: {all_unique}")
 
     common = set.intersection(*players.values())
-    print(f"\nCommon achievements: {common}\n")
+    print(f"Common achievements: {common}")
 
     for name, achievements in players.items():
         others = set().union(*(players[n] for n in players if n != name))
-        only = achievements - others
+        only = achievements.difference(others)
         print(f"Only {name} has: {only}")
 
     print()
     full_set = set(all_achievements)
     for name, achievements in players.items():
-        missing = full_set - achievements
+        missing = full_set.difference(achievements)
         print(f"{name} is missing: {missing}")

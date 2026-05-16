@@ -1,14 +1,23 @@
 class Plant:
     class Stats:
         def __init__(self) -> None:
-            self.grow_calls = 0
-            self.age_calls = 0
-            self.show_calls = 0
+            self._grow_calls = 0
+            self._age_calls = 0
+            self._show_calls = 0
+
+        def add_grow(self) -> None:
+            self._grow_calls += 1
+
+        def add_age(self) -> None:
+            self._age_calls += 1
+
+        def add_show(self) -> None:
+            self._show_calls += 1
 
         def display(self) -> None:
             print(
-                f"Stats: {self.grow_calls} grow, "
-                f"{self.age_calls} age, {self.show_calls} show"
+                f"Stats: {self._grow_calls} grow, "
+                f"{self._age_calls} age, {self._show_calls} show"
             )
 
     def __init__(self, name: str, height: float, age: int) -> None:
@@ -19,15 +28,15 @@ class Plant:
 
     def grow(self, cm: float = 8.0) -> None:
         self._height += cm
-        self._stats.grow_calls += 1
+        self._stats.add_grow()
 
     def age_up(self, days: int = 1) -> None:
         self._age += days
-        self._stats.age_calls += 1
+        self._stats.add_age()
 
     def show(self) -> None:
         print(f"{self._name}: {self._height:.1f}cm, {self._age} days old")
-        self._stats.show_calls += 1
+        self._stats.add_show()
 
     def get_stats(self) -> "Plant.Stats":
         return self._stats
