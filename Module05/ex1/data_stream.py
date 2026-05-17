@@ -21,7 +21,7 @@ class DataProcessor(ABC):
             raise IndexError("No data")
 
         return self._storage.pop(0)
-    
+
     def get_total_processed(self) -> int:
         return self._counter
 
@@ -241,8 +241,7 @@ if __name__ == "__main__":
     stream.print_processors_stats()
 
     print(
-        "Consume some elements "
-        "from the data processors: "
+        "Consume some elements " "from the data processors: "
         "Numeric 3, Text 2, Log 1"
     )
 

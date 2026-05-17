@@ -2,12 +2,12 @@ def secure_archive(
     filename: str, mode: str = "r", content: str = ""
 ) -> tuple[bool, str]:
     try:
-        if mode == "r":
+        if mode == "r" or mode == "read":
             with open(filename, "r") as file:
                 data = file.read()
             return True, data
 
-        if mode == "w":
+        if mode == "w" or mode == "write":
             with open(filename, "w") as file:
                 file.write(content)
             return True, "Content successfully written to file"
@@ -15,7 +15,7 @@ def secure_archive(
         return False, "Invalid mode"
 
     except Exception as e:
-        return False, str(e)
+        return False, f"{e}"
 
 
 def main() -> None:

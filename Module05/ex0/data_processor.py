@@ -116,9 +116,9 @@ class LogProcessor(DataProcessor):
 
 if __name__ == "__main__":
 
-    print("=== Code Nexus - Data Processor ===\n")
+    print("=== Code Nexus - Data Processor ===")
 
-    print("Testing Numeric Processor...\n")
+    print("Testing Numeric Processor...")
 
     numeric = NumericProcessor()
 
@@ -150,7 +150,7 @@ if __name__ == "__main__":
 
         print(f"Numeric value {rank}: " f"{value}")
 
-    print("\nTesting Text Processor...\n")
+    print("Testing Text Processor...")
 
     text = TextProcessor()
 
@@ -168,7 +168,7 @@ if __name__ == "__main__":
 
     print(f"Text value {rank}: " f"{value}")
 
-    print("\nTesting Log Processor...\n")
+    print("Testing Log Processor...")
 
     log = LogProcessor()
 
