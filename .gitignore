@@ -1,4 +1,20 @@
+# macOS
 .DS_Store
-__pycache__
-.venv/
+
+# Python
+__pycache__/
+*.pyc
 .mypy_cache/
+.pytest_cache/
+venv/
+
+# C
+*.o
+a.out
+*.a
+
+# VS Code
+.vscode/
+
+# Temporary
+*.swp
