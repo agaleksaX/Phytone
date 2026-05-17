@@ -1,4 +1,4 @@
-from ex0.ex0.creature import Creature, CreatureFactory
+from ex0.creature import Creature, CreatureFactory
 from .capabilities import HealCapability
 
 
