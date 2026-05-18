@@ -24,7 +24,6 @@ def test_healing_factory(factory: HealingCreatureFactory) -> None:
 
 def test_transform_factory(factory: TransformCreatureFactory) -> None:
 
-    print("")
     print("Testing Creature with transform capability")
 
     base = factory.create_base()
@@ -52,6 +51,7 @@ def main() -> None:
     transform_factory = TransformCreatureFactory()
 
     test_healing_factory(healing_factory)
+    print()
     test_transform_factory(transform_factory)
 
 
