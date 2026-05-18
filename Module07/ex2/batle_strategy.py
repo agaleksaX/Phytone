@@ -42,10 +42,10 @@ class AggressiveStrategy(BattleStrategy):
 
 class DefensiveStrategy(BattleStrategy):
 
-    def is_valid(self, creature) -> bool:
+    def is_valid(self, creature: Creature) -> bool:
         return isinstance(creature, HealCapability)
 
-    def act(self, creature) -> None:
+    def act(self, creature: Creature) -> None:
         if not isinstance(creature, HealCapability):
             raise ValueError(
                 f"Invalid Creature '{creature.name}' "
